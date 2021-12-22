@@ -1,5 +1,5 @@
 package database;
-
+//Database File Updated (Arshad)
 public class User {
 
 	private String email;

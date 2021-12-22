@@ -1,7 +1,7 @@
 package database;
 
 import java.sql.Date;
-
+//Database File Updated (Arshad)
 public class Application {
 
 	private int applierID;
