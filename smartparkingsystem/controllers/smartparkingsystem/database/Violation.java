@@ -1,4 +1,4 @@
-package smartparkingsystem.database;
+package database;
 
 import java.sql.Date;
 

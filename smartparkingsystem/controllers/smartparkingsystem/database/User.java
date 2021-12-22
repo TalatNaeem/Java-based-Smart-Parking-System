@@ -1,4 +1,4 @@
-package smartparkingsystem.database;
+package database;
 
 public class User {
 
