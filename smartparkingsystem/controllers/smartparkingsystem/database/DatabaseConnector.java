@@ -1,4 +1,4 @@
-package smartparkingsystem.database;
+package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,10 +24,10 @@ public class DatabaseConnector {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://" + address + ":" + port + "/"
-					+ "Smart_parking_system" + "?user=" + username + "&password=" + password);
-			//jdbc:mysql://localhost:3306/mysql
+					+ "smart_parking_system" + "?user=" + username + "&password=" + password);
 			statement = connection.createStatement();
 		} catch (SQLException e) {
+			System.err.println(e.getLocalizedMessage());
 			System.err.println("Caught a SQLException when trying to create the DatabaseConnector");
 			System.exit(-1);
 		} catch (ClassNotFoundException e) {
@@ -217,8 +217,9 @@ public class DatabaseConnector {
 		ObservableList<String> currentlyParkedVehicles = FXCollections.observableArrayList();
 
 		try {
+			
 			resultSet = statement.executeQuery(
-					"SELECT registration_number FROM vehicle INNER JOIN entry_exit ON vehicle.id = entry_exit.vehicle_id;");
+					"SELECT registration_number FROM vehicle ;");
 
 			while (resultSet.next()) {
 				currentlyParkedVehicles.add(resultSet.getString(1));
@@ -339,17 +340,18 @@ public class DatabaseConnector {
 			if (resultSet.next()) {
 				type = resultSet.getInt("type");
 			}
-
-			//resultSet = statement.executeQuery("SELECT name FROM user_type WHERE id = '" + type + '\'');
-			resultSet = statement.executeQuery("SELECT name FROM user WHERE email = '" + emailAddress + '\'');
-
-			if (resultSet.next()) {
-				userType = resultSet.getString("name");
+			if (type ==2) {
+				userType="Administrator"	;
+			} else if (type == 3) {
+				userType="Faculty";
+			} else if (type == 4) {
+				userType="Student";
 			}
+
 		} catch (SQLException e) {
 			System.err.println("Caught a SQLException when getting the userType of user " + emailAddress);
 		}
-		System.out.println(" Connected");
+		System.out.println("Connected");
 		return userType;
 	}
 
@@ -393,7 +395,7 @@ public class DatabaseConnector {
 			resultSet = statement.executeQuery("SELECT * from vehicle");
 			while (resultSet.next()) {
 				vehiclesObservableList
-						.add(new Vehicle(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3)));
+						.add(new Vehicle(resultSet.getInt(1), resultSet.getString(3), resultSet.getInt(2)));
 			}
 		} catch (SQLException e) {
 			System.err.println("Caught a SQLException when getting the Vehicles ObservableList");
@@ -439,7 +441,7 @@ public class DatabaseConnector {
 					.executeQuery("SELECT date_reviewed FROM application WHERE id = '" + applicationID + '\'');
 			resultSet.next();
 			resultSet.getDate(1);
-			return !resultSet.wasNull();
+			return resultSet.first();
 		} catch (SQLException e) {
 			System.err.println("Caught a SQLException when checking if application with ID " + applicationID
 					+ " is already reviewed or not");
@@ -451,7 +453,7 @@ public class DatabaseConnector {
 	public void rejectApplication(int applicationID) {
 		try {
 			statement.executeUpdate("UPDATE `smart_parking_system`.`application` SET `date_reviewed` = '"
-					+ getCurrentDate() + "' WHERE (`id` = '" + applicationID + "');");
+					+ getCurrentDate() + "', `approved` = '0' WHERE (`id` = '" + applicationID + "');");
 		} catch (SQLException e) {
 			System.err.println("Caught a SQLException when rejecting application with ID " + applicationID);
 		}

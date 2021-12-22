@@ -1,40 +1,42 @@
-package smartparkingsystem.database;
+package database;
 
 public class Vehicle {
 
 	private int id;
-	private int ownerID;
-	private String registrationNumber;
+	private int owner_id;
+	private String registration_number;
 
 	public Vehicle(int id, String registrationNumber, int ownerID) {
 		super();
 		this.id = id;
-		this.registrationNumber = registrationNumber;
-		this.ownerID = ownerID;
+		this.registration_number = registrationNumber;
+		this.owner_id = ownerID;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public int getOwnerID() {
-		return ownerID;
-	}
-
-	public String getRegistrationNumber() {
-		return registrationNumber;
-	}
-
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public void setOwnerID(int ownerID) {
-		this.ownerID = ownerID;
+	public int getOwner_id() {
+		return owner_id;
 	}
 
-	public void setRegistrationNumber(String registrationNumber) {
-		this.registrationNumber = registrationNumber;
+	public void setOwner_id(int owner_id) {
+		this.owner_id = owner_id;
 	}
+
+	public String getRegistration_number() {
+		return registration_number;
+	}
+
+	public void setRegistration_number(String registration_number) {
+		this.registration_number = registration_number;
+	}
+
+
 
 }
