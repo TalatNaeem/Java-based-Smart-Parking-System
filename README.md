@@ -11,7 +11,7 @@ For this particular project we used different tools and technologies. Further de
 ## Screenshots
 <p align="center" style="font-size:12px;color:dimgray">SignUp</p>
 <p align="center">
-    <img src="images/registraton.PNG" alt="Signup"/>
+    <img src="images/registration.PNG" alt="Signup"/>
 </p>
 <hr>
 <p align="center" style="font-size:12px;color:dimgray">Login</p>
