@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fillWidth="false" maxHeight="592.0" maxWidth="987.0" minHeight="592.0" minWidth="987.0" prefHeight="592.0" prefWidth="987.0" spacing="16.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartparkingsystem.controllers.ViewViolationsController">
+   <children>
+      <Label text="View Violations">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font></Label>
+      <TableView fx:id="violationTableView" prefHeight="506.0" prefWidth="1256.0">
+         <columns>
+            <TableColumn fx:id="violationIDColumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="violationViolatorVehicleNumberColumn" prefWidth="173.0" text="Violator Vehicle Number" />
+            <TableColumn fx:id="violatonReporterID" prefWidth="97.0" text="Reporter ID" />
+            <TableColumn fx:id="violationDateOfViolation" prefWidth="158.0" text="Date of Violation" />
+            <TableColumn fx:id="violationDescription" prefWidth="456.0" text="Description" />
+         </columns></TableView>
+   </children>
+   <padding>
+      <Insets bottom="12.0" left="12.0" right="12.0" />
+   </padding>
+</VBox>

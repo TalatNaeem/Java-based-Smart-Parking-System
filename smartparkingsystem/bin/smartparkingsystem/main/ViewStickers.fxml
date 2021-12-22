@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fillWidth="false" maxHeight="592.0" maxWidth="987.0" minHeight="592.0" minWidth="987.0" prefHeight="592.0" prefWidth="987.0" spacing="16.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartparkingsystem.controllers.ViewStickersController">
+   <children>
+      <Label text="View Stickers">
+         <font>
+            <Font name="Segoe UI" size="20.0" />
+         </font></Label>
+      <TableView fx:id="stickerTableView" prefHeight="506.0" prefWidth="1256.0">
+         <columns>
+            <TableColumn fx:id="stickerIDColumn" prefWidth="110.0" text="ID" />
+            <TableColumn fx:id="stickerIssuedToColumn" prefWidth="330.0" text="Issued To" />
+            <TableColumn fx:id="stickerValidFromColumn" prefWidth="275.0" text="Valid From" />
+            <TableColumn fx:id="stickerValidTillColumn" minWidth="0.0" prefWidth="243.0" text="Valid Till" />
+         </columns></TableView>
+   </children>
+   <padding>
+      <Insets bottom="12.0" left="12.0" right="12.0" />
+   </padding>
+</VBox>
